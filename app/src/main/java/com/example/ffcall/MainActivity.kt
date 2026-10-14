@@ -1,21 +1,15 @@
 package com.example.ffcall
-
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
-
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
-        val button = Button(this)
-        button.text = "FF Call Now"
-        button.textSize = 24f
-        button.setOnClickListener {
-            Toast.makeText(this, "FF Call Started!", Toast.LENGTH_SHORT).show()
-        }
-        
-        setContentView(button)
+        val webView = WebView(this)
+        setContentView(webView)
+        webView.webViewClient = WebViewClient()
+        webView.settings.javaScriptEnabled = true
+        webView.loadUrl("https://www.google.com")
     }
 }
